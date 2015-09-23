@@ -1,0 +1,13 @@
+{
+  "name": "react",
+  "version": "0.0.0",
+  "description": "desc",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}

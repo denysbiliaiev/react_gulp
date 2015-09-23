@@ -1,5 +1,13 @@
-var test = require('./test');
+var React = require('react');
 
-var button = console.log('111');
+var Button = React.createClass({
+    render: function() {
+        return (
+            <div>
+                <button className="btn btn-success">but2</button>
+            </div>
+        )
+    }
+});
 
-module.exports = button;
+module.exports = Button;
