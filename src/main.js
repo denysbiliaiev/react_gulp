@@ -1,20 +1,8 @@
 var React = require('react');
+var Router = require('react-router');
+var routes = require('./routes');
 
-var FancyCheckbox = React.createClass({
-        render: function() {
-            var fancyClass = this.props.checked ? 'FancyChecked' : 'FancyUnchecked';
-            return (
-                <div className={fancyClass} onClick={this.props.onClick}>
-                        {this.props.children}
-                </div>
-            );
-        }
+Router.run(routes, Router.HistoryLocation, function(Handler) {
+    React.render(<Handler />, document.getElementById('app'));
 });
-
-React.render(
-<FancyCheckbox checked={true} onClick={console.log.bind(console)}>
-Hello world!
-</FancyCheckbox>,
-    document.getElementById('example')
-);
 
