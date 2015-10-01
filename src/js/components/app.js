@@ -7,9 +7,9 @@ var RouteHandler = require('react-router').RouteHandler;
 var App = React.createClass({
     render: function() {
         return (
-            <div className="container-fluid">
+            <div className="container">
                 <Header />
-                <div className="container-fluid">
+                <div className="container">
                     <RouteHandler />
                 </div>
             </div>

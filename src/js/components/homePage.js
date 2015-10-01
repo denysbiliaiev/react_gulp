@@ -1,19 +1,16 @@
 "use strict";
+
 var React = require('react');
-var Link = require('react-router').Link;
-var PersonActions = require('../actions/personActions');
-var PersonStore = require('../stores/personStore');
+var PersonFork = require('./PersonFork');
 
-var HomePage = React.createClass({
-    render: function() {
-        PersonActions.createPerson({name: 'vasya'});
-
+var App = React.createClass({
+    render: function () {
         return (
             <div>
-               <h3>homePage</h3>
+                <PersonFork />
             </div>
         )
     }
 });
 
-module.exports = HomePage;
+module.exports = App;

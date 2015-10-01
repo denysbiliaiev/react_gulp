@@ -1,6 +1,7 @@
 "use strict"
 
-var Dispatcher = require('../dispatchers/appDispatcher');
+var PersonDispatcher = require('../dispatchers/personDispatcher');
+var AppDispatcher = require('../dispatchers/appDispatcher');
 var ActionTypes = require('../constants/actionTypes');
 var EventEmitter = require('events').EventEmitter;
 var _ = require('lodash');
@@ -21,21 +22,43 @@ var PersonStore = _.assign({}, EventEmitter.prototype, {
         this.removeListener(CHANGE_EVENT, callback)
     },
 
-    getAllPersons: function() {
+    list: function() {
         return _persons;
     },
 
     getPersonById: function(id) {
-        return _.find(_authors, {id: id});
+        return _.find(_persons, {id: id});
+    },
+
+
+});
+
+PersonDispatcher.register(function(payload) {
+    switch (payload.actionTypes) {
+        case ActionTypes.PERSON_INITIALIZE:
+            _persons = payload.persons;
+            PersonStore.emitChange();
+            break;
+        case ActionTypes.PERSON_CREATE:
+            _persons.push(payload.person);
+            PersonStore.emitChange();
+            break;
+        case ActionTypes.PERSON_UPDATE:
+            var person = _.find(_persons, {id: payload.person.id});
+            var index = _.indexOf(_persons, existingPerson);
+            _persons.splice(index, 1, payload.person);
+            PersonStore.emitChange();
+            break;
+        case ActionTypes.PERSON_DELETE:
+            _persons.push(payload.person);
+            PersonStore.emitChange();
+            break;
     }
 });
 
-Dispatcher.register(function(action) {
-    switch (action.actionTypes) {
-        case ActionTypes.PERSON_CREATE:
-        _persons.push(action.person);
-        PersonStore.emitChange();
-        break;
+AppDispatcher.register(function(payload) {
+    switch (payload.actionTypes) {
+
     }
 });
 
