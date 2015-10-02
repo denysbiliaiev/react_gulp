@@ -7,4 +7,5 @@ module.exports = keyMirror({
     PERSON_CREATE: null,
     PERSON_UPDATE: null,
     PERSON_DELETE: null,
+    PERSON_SORT: null
 });

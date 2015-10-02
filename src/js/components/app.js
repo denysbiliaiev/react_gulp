@@ -9,7 +9,7 @@ var App = React.createClass({
         return (
             <div className="container">
                 <Header />
-                <div className="container">
+                <div className="container-fluid">
                     <RouteHandler />
                 </div>
             </div>
