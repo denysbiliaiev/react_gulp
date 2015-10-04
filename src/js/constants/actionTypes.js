@@ -3,9 +3,8 @@
 var keyMirror = require('react/lib/keyMirror');
 
 module.exports = keyMirror({
-    PERSON_INITIALIZE: null,
-    PERSON_CREATE: null,
-    PERSON_UPDATE: null,
-    PERSON_DELETE: null,
-    PERSON_SORT: null
+    ADD_ITEM: null,
+    REMOVE_ITEM: null,
+    DECREASE_ITEM: null,
+    INCREASE_ITEM: null,
 });
