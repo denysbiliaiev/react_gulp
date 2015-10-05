@@ -71,7 +71,7 @@ gulp.task('eslint', function() {
 
 gulp.task('watch', function() {
     gulp.watch(config.paths.html, ['html']);
-    gulp.watch(config.paths.js, ['js', 'eslint']);
+    gulp.watch(config.paths.js, ['js']);
 });
 
-gulp.task('default', ['html', 'js', 'css', 'eslint', 'open', 'watch']);
+gulp.task('default', ['html', 'js', 'css',  'open', 'watch']);

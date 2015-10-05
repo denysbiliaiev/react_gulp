@@ -1,7 +1,7 @@
 /** @jsx React.DOM */
 
 var React = require('react');
-var Link = require('react-router-component').Link;
+var Link = require('react-router').Link;
 var AppStore = require('../../stores/appStore');
 var StoreWatchMixin = require('../mixins/storeWatchMixin');
 
@@ -15,7 +15,7 @@ var CartSummary = React.createClass({
     render: function() {
         return (
             <div>
-                <Link href="/cart" className="btn btn success">
+                <Link to="cart" className="btn btn success">
                     CART ITEMS: {this.state.qty} / ${this.state.total}
                 </Link>
             </div>

@@ -1,7 +1,7 @@
 /** @jsx React.DOM */
 
 var React = require('react');
-var Link = require('react-router-component').Link;
+var Link = require('react-router').Link;
 var AddToCart = require('./addToCart');
 
 var CatalogItem = React.createClass({
@@ -22,7 +22,7 @@ var CatalogItem = React.createClass({
                 <p>{this.props.item.summary}</p>
                 <p>${this.props.item.cost}<span className="text-success">{this.props.item.inCart && '(' + this.props.item.qty + ' in cart)'}</span></p>
                 <div className="btn-group btn-group-xs">
-                <Link href={"/item/" + this.props.item.id} className="btn btn-default">Learn more</Link>
+                <Link to={"/item/" + this.props.item.id} className="btn btn-default">Learn more</Link>
                 <AddToCart item={this.props.item}/>
                 </div>
             </div>

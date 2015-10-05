@@ -5,12 +5,13 @@ var AppStore = require('../../stores/appStore');
 var AddToCart = require('../catalog/addToCart');
 var CatalogItem = require('../catalog/CatalogItem');
 var StoreWatchMixin = require('../mixins/storeWatchMixin');
-var Link = require('react-router-component').Link;
+var Link = require('react-router').Link;
 
 function getCatalogItem(component) {
     var thisItem;
+
     AppStore.getCatalog().forEach(function(item, i){
-        if (item.id.toString() == component.props.id) {
+        if (item.id.toString() == component.props.params.id) {
             thisItem = item;
         }
     });
@@ -36,7 +37,7 @@ var CatalogDetail = React.createClass({
                 <p>${this.state.item.cost}<span className="text-success">{this.state.item.inCart && '(' + this.state.item.qty + ' in cart)'}</span></p>
                 <div className="btn-group btn-group-xs">
                     <AddToCart item={this.state.item}/>
-                    <Link href="/" className="btn btn-default">Continue shoping</Link>
+                    <Link to="app" className="btn btn-default">Continue shoping</Link>
                 </div>
             </div>
         )

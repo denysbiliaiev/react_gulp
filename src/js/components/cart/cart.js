@@ -6,7 +6,7 @@ var RemoveFromCart = require('./removeFromCart');
 var Increase = require('./increase');
 var Decrease = require('./decrease');
 var StoreWatchMixin = require('../mixins/storeWatchMixin');
-var Link = require('react-router-component').Link;
+var Link = require('react-router').Link;
 
 function cartItems() {
     return {items: AppStore.getCartItems()}
@@ -57,7 +57,7 @@ var Cart = React.createClass({
                     </tfoot>
                 </table>
 
-                <Link href='/'>Continue shoping</Link>
+                <Link to='app'>Continue shoping</Link>
             </div>
         )
     }
