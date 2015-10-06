@@ -1,26 +1,16 @@
 "use strict"
-
-
 var express = require('express');
 var app = express();
 var path = require('path');
 var React = require('react');
-var Router = require('react-router');
-var routes = require('./routesServer');
-
-app.use(express.static(path.join(__dirname, '/src/js')));
-
 
 app.use((req, res) => {
-    Router.run(routes, req.path, (Root, state) => {
-        res.send('<!DOCTYPE html>' + React.renderToString( <Root/> ));
-    });
+    res.render();
 });
 
 app.listen(3000, function() {
     console.log('server listen: ');
 });
-
 
 //require ('node-jsx').install();
 //var renderer = require('react-engine');

@@ -1,7 +1,7 @@
 /** @jsx React.DOM */
 
 var React = require('react');
-var AppActions = require('../../actions/appActions');
+var AppActions = require('../../.././appActions');
 
 var removeFromCart = React.createClass({
     handleClick: function() {

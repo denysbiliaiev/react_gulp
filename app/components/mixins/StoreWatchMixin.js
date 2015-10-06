@@ -1,7 +1,7 @@
 /** @jsx React.DOM */
 
 var React = require('react');
-var AppStore = require('../../stores/appStore');
+var AppStore = require('.././appStore');
 
 var StoreWatchMixin = function(cb){
     return {

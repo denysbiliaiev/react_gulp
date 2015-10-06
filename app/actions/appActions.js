@@ -1,5 +1,6 @@
 "use strict"
 
+
 var _ = require('lodash');
 var AppDispatcher = require('../dispatchers/appDispatcher');
 var ActionTypes = require('../constants/actionTypes');

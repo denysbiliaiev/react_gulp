@@ -1,11 +1,11 @@
 /** @jsx React.DOM */
 
 var React = require('react');
-var AppStore = require('../../stores/appStore');
+var AppStore = require('.././appStore');
 var RemoveFromCart = require('./removeFromCart');
 var Increase = require('./increase');
 var Decrease = require('./decrease');
-var StoreWatchMixin = require('../mixins/storeWatchMixin');
+var StoreWatchMixin = require('../mixins/StoreWatchMixin');
 var Link = require('react-router').Link;
 
 function cartItems() {

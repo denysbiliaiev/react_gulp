@@ -1,10 +1,10 @@
 /** @jsx React.DOM */
 
 var React = require('react');
-var AppStore = require('../../stores/appStore');
+var AppStore = require('.././appStore');
 var AddToCart = require('../catalog/addToCart');
-var CatalogItem = require('../catalog/CatalogItem');
-var StoreWatchMixin = require('../mixins/storeWatchMixin');
+var CatalogItem = require('../catalog/catalogItem');
+var StoreWatchMixin = require('../mixins/StoreWatchMixin');
 var Link = require('react-router').Link;
 
 function getCatalogItem(component) {

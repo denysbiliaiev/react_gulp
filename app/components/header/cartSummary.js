@@ -2,8 +2,8 @@
 
 var React = require('react');
 var Link = require('react-router').Link;
-var AppStore = require('../../stores/appStore');
-var StoreWatchMixin = require('../mixins/storeWatchMixin');
+var AppStore = require('.././appStore');
+var StoreWatchMixin = require('../mixins/StoreWatchMixin');
 
 function cartTotals() {
     return AppStore.getCartTotals();

@@ -1,10 +1,10 @@
 /** @jsx React.DOM */
 
 var React = require('react');
-var AppStore = require('../../stores/appStore');
+var AppStore = require('.././appStore');
 var AddToCart = require('./addToCart');
-var CatalogItem = require('./CatalogItem');
-var StoreWatchMixin = require('../mixins/storeWatchMixin');
+var CatalogItem = require('./catalogItem');
+var StoreWatchMixin = require('../mixins/StoreWatchMixin');
 
 function getCatalog() {
     return {items: AppStore.getCatalog()};
