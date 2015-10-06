@@ -1,11 +1,11 @@
 /** @jsx React.DOM */
 
 var React = require('react');
-var AppStore = require('.././appStore');
+var Link = require('react-router').Link;
+var AppStore = require('../../stores/appStore');
 var AddToCart = require('../catalog/addToCart');
 var CatalogItem = require('../catalog/catalogItem');
 var StoreWatchMixin = require('../mixins/StoreWatchMixin');
-var Link = require('react-router').Link;
 
 function getCatalogItem(component) {
     var thisItem;
@@ -18,8 +18,6 @@ function getCatalogItem(component) {
 
     return {item: thisItem};
 }
-
-var React = require('react');
 
 var CatalogDetail = React.createClass({
     mixins: [StoreWatchMixin(getCatalogItem)],

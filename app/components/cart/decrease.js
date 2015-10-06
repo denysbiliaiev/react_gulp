@@ -1,7 +1,7 @@
 /** @jsx React.DOM */
 
 var React = require('react');
-var AppActions = require('../../.././appActions');
+var AppActions = require('../../actions/appActions');
 
 var Decrease = React.createClass({
     handleClick: function() {

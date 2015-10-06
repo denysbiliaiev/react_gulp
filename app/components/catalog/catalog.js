@@ -1,7 +1,7 @@
 /** @jsx React.DOM */
 
 var React = require('react');
-var AppStore = require('.././appStore');
+var AppStore = require('../../stores/appStore');
 var AddToCart = require('./addToCart');
 var CatalogItem = require('./catalogItem');
 var StoreWatchMixin = require('../mixins/StoreWatchMixin');

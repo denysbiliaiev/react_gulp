@@ -3,37 +3,33 @@ var express = require('express');
 var app = express();
 var path = require('path');
 var React = require('react');
+//var Com = require('./app');
 
-app.use((req, res) => {
-    res.render();
-});
-
-app.listen(3000, function() {
+app.listen(3007, 'react', function() {
     console.log('server listen: ');
 });
 
-//require ('node-jsx').install();
-//var renderer = require('react-engine');
-
-//function collector(stats) {
-//    console.log(stats);
-//}
+//app.get('/', (req, res) => {
+//    res.json({"test": "hello"});
+//});
 //
-//var engine = renderer.server.create({
-//    reactRoutes: './routesServer.js',
-//    performanceCollector: collector
+//app.get('/test', (req, res) => {
+//    res.render(<App />);
 //});
 
-//app.engine('.jsx', engine);
-//app.set('views', path.join(__dirname, '/js/components'));
-//app.set('view engine', 'jsx');
-//app.set('view', renderer.expressView);
+
+var router = express.Router();              // get an instance of the express Router
+
+app.use('/api', router);
+
+router.use(function(req, res, next) {
+    console.log('Something is happening.');
+    next();
+});
 
 
-//var index = function(req, res) {
-//    res.render('app');
-//}
-//
-//app.get('', index);
-//app.get('/', index);
+router.get('/', function(req, res) {
+    res.json({ "message": "hooray! welcome to our api!" });
+});
+
 

@@ -8,11 +8,11 @@ var NotFoundRoute = Router.NotFoundRoute;
 var Redirect = Router.Redirect;
 
 var routes = (
-    <Route name="app" path="/" handler={require('././app')}>
-        <DefaultRoute handler={require('././catalog/catalog')}></DefaultRoute>
-        <Route name="cart" handler={require('././cart/cart')}></Route>
-        <Route name="item" path="item/:id" handler={require('././product/catalogDetail')}></Route>
-        <NotFoundRoute handler={require('././NotFoundPage')}></NotFoundRoute>
+    <Route name="app" path="/" handler={require('./components/app')}>
+        <DefaultRoute handler={require('./components/catalog/catalog')}></DefaultRoute>
+        <Route name="cart" handler={require('./components/cart/cart')}></Route>
+        <Route name="item" path="item/:id" handler={require('./components/product/catalogDetail')}></Route>
+        <NotFoundRoute handler={require('./components/NotFoundPage')}></NotFoundRoute>
     </Route>
 );
 

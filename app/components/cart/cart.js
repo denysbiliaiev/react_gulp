@@ -1,12 +1,12 @@
 /** @jsx React.DOM */
 
 var React = require('react');
-var AppStore = require('.././appStore');
+var Link = require('react-router').Link;
+var AppStore = require('../../stores/appStore');
 var RemoveFromCart = require('./removeFromCart');
 var Increase = require('./increase');
 var Decrease = require('./decrease');
 var StoreWatchMixin = require('../mixins/StoreWatchMixin');
-var Link = require('react-router').Link;
 
 function cartItems() {
     return {items: AppStore.getCartItems()}
