@@ -1,35 +1,40 @@
-"use strict"
 var express = require('express');
-var app = express();
+var http = require('http');
+var https = require('https');
 var path = require('path');
-var React = require('react');
-//var Com = require('./app');
+var config = require('./config');
+var log = require('./lib/winston')(module);
+var HttpError = require('./lib/error').HttpError;
+var routers = require('./routers');
 
-app.listen(3007, 'react', function() {
-    console.log('server listen: ');
+//var User = require('./models/User');
+
+var logger = require('morgan');
+var cookieParser = require('cookie-parser');
+var bodyParser = require('body-parser');
+
+var app = express();
+//app.use(bodyParser.json());
+//app.use(bodyParser.urlencoded({ extended: false }));
+app.use(cookieParser());
+app.use(express.static(path.join(__dirname, 'public')));
+
+//app.use(require('middleware/sendError'));
+
+app.use('/api', routers);
+
+app.use(function(err, req, res, next) {
+    if (process.env.NODE_ENV == 'development') {
+        if (err instanceof HttpError) {
+            log.error(err);
+            res.sendError(err);
+            //process.exit(1);
+        }
+
+        res.send(500, 'ERROR: ' + err);
+    }
 });
 
-//app.get('/', (req, res) => {
-//    res.json({"test": "hello"});
-//});
-//
-//app.get('/test', (req, res) => {
-//    res.render(<App />);
-//});
-
-
-var router = express.Router();              // get an instance of the express Router
-
-app.use('/api', router);
-
-router.use(function(req, res, next) {
-    console.log('Something is happening.');
-    next();
+http.createServer(app).listen(config.get('port'), function() {
+    console.log('server listen: ' + config.get('port'));
 });
-
-
-router.get('/', function(req, res) {
-    res.json({ "message": "hooray! welcome to our api!" });
-});
-
-
