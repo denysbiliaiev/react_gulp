@@ -1,3 +1,17 @@
+var express = require('express'),
+    http = require('http'),
+    app = express(),
+    middleware = require('./middleware')(app, express),
+    config = require('./config'),
+    log = require('./utils/log')(app, module);
+
+http.createServer(app).listen(config.get('port'), function(){
+    log.info('Express server listening on port ' + config.get('port'));
+});
+
+
+
+
 var express = require('express');
 var http = require('http');
 var https = require('https');
@@ -6,6 +20,10 @@ var config = require('./config');
 var log = require('./lib/winston')(module);
 var HttpError = require('./lib/error').HttpError;
 var routers = require('./routers');
+
+
+
+
 
 //var User = require('./models/User');
 
